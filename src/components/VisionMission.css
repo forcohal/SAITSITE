@@ -1,0 +1,363 @@
+/* ==========================================================
+   VISION & MISSION — Editorial Composition
+   Sophisticated · Asymmetric · Restrained · Minimal
+   ========================================================== */
+
+.vm-section {
+  background-color: var(--color-bg);
+  padding-top: var(--spacing-section);
+  padding-bottom: var(--spacing-section);
+  border-top: 1px solid var(--color-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.vm-container {
+  max-width: 1160px; /* consistent wide editorial grid */
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 5vw, 3.5rem);
+}
+
+/* ── Section Header ───────────────────────────────────────── */
+.vm-header {
+  margin-bottom: clamp(3.5rem, 7vw, 5.5rem);
+}
+
+.vm-header-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.vm-label-num {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--color-accent);
+}
+
+.vm-label-divider {
+  color: var(--color-accent);
+  font-size: 0.68rem;
+  opacity: 0.6;
+}
+
+.vm-label-text {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.vm-header-main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: end;
+}
+
+@media (min-width: 860px) {
+  .vm-header-main {
+    grid-template-columns: 1.2fr 1fr;
+    gap: clamp(2.5rem, 5vw, 5rem);
+  }
+}
+
+.vm-heading {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 400;
+  line-height: 0.95;
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+}
+
+.vm-heading-line {
+  display: block;
+}
+
+.vm-intro-body {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  max-width: 520px;
+  border-left: 1px solid var(--color-border);
+  padding-left: 1.25rem;
+}
+
+/* ── Composition Layout ──────────────────────────────────── */
+.vm-composition {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 4vw, 3rem);
+}
+
+/* ── Top Bar inside Cards ─────────────────────────────────── */
+.vm-card-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: clamp(1.75rem, 3.5vw, 2.5rem);
+}
+
+.vm-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.vm-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--color-text-primary);
+}
+
+.vm-dot-burgundy {
+  background-color: var(--color-accent);
+}
+
+.vm-badge-label {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+}
+
+.vm-badge-mission .vm-badge-label {
+  color: var(--color-accent);
+}
+
+.vm-tagline {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  opacity: 0.8;
+}
+
+/* ── 01 / VISION CARD (Primary, Expansive) ─────────────────── */
+.vm-vision-card {
+  position: relative;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  padding: clamp(2rem, 5vw, 3.75rem);
+  box-shadow: 0 4px 24px rgba(16, 45, 39, 0.02);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.45s ease,
+              box-shadow 0.45s ease;
+}
+
+.vm-vision-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(16, 45, 39, 0.45);
+  box-shadow: 0 12px 36px rgba(16, 45, 39, 0.05);
+}
+
+.vm-vision-body {
+  position: relative;
+  margin-bottom: clamp(1.5rem, 3.5vw, 2.5rem);
+}
+
+.vm-oversized-num {
+  position: absolute;
+  right: 0;
+  top: -1.5rem;
+  font-family: var(--font-display);
+  font-size: clamp(5rem, 14vw, 11rem);
+  font-weight: 400;
+  color: var(--color-muted);
+  opacity: 0.4;
+  line-height: 0.8;
+  user-select: none;
+  pointer-events: none;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.vm-vision-card:hover .vm-oversized-num {
+  transform: translateY(-4px);
+  opacity: 0.55;
+}
+
+.vm-vision-quote {
+  position: relative;
+  font-family: var(--font-display);
+  font-size: clamp(1.65rem, 3.5vw, 2.65rem);
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+  max-width: 900px;
+  margin: 0;
+  transition: color 0.35s ease;
+}
+
+.vm-vision-footer {
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(16, 45, 39, 0.1);
+}
+
+.vm-source-label {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+/* ── Connector ───────────────────────────────────────────── */
+.vm-connector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 0.5rem 0;
+}
+
+.vm-connector-line {
+  height: 1px;
+  width: 60px;
+  background-color: var(--color-border);
+}
+
+.vm-connector-mark {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--color-accent);
+  line-height: 1;
+}
+
+/* ── 02 / MISSION CARD (Action-Oriented, Shifted) ──────────── */
+.vm-mission-card {
+  position: relative;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-accent); /* burgundy anchor line */
+  padding: clamp(2rem, 5vw, 3.75rem);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.45s ease,
+              border-color 0.45s ease;
+}
+
+@media (min-width: 960px) {
+  .vm-mission-card {
+    /* Asymmetric indentation to differentiate from vision card */
+    margin-left: clamp(2rem, 6vw, 5rem);
+  }
+}
+
+.vm-mission-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(74, 31, 38, 0.06);
+}
+
+.vm-mission-lead-wrapper {
+  position: relative;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.vm-mission-num {
+  top: -1.2rem;
+  color: var(--color-muted);
+}
+
+.vm-mission-card:hover .vm-mission-num {
+  transform: translateY(-4px);
+  opacity: 0.55;
+}
+
+.vm-mission-lead {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.2vw, 1.65rem);
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--color-text-primary);
+  max-width: 740px;
+}
+
+/* ── Mission Pillars Grid ─────────────────────────────────── */
+.vm-pillars-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.5rem, 3.5vw, 2.75rem);
+  padding-top: clamp(1.5rem, 3vw, 2.5rem);
+  border-top: 1px solid var(--color-border);
+}
+
+@media (min-width: 768px) {
+  .vm-pillars-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.vm-pillar-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 1.25rem;
+  background-color: rgba(220, 213, 197, 0.15); /* very soft cream highlight */
+  border: 1px solid rgba(16, 45, 39, 0.12);
+  transition: transform 0.35s ease, border-color 0.35s ease, background-color 0.35s ease;
+}
+
+.vm-pillar-item:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-accent);
+  background-color: rgba(220, 213, 197, 0.28);
+}
+
+.vm-pillar-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.vm-pillar-index {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--color-accent);
+}
+
+.vm-pillar-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 1.8vw, 1.35rem);
+  font-weight: 400;
+  color: var(--color-text-primary);
+  line-height: 1.2;
+}
+
+.vm-pillar-desc {
+  font-family: var(--font-body);
+  font-size: clamp(0.85rem, 1.25vw, 0.95rem);
+  line-height: 1.75;
+  color: var(--color-text-secondary);
+}
+
+/* ── Reduced Motion ───────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .vm-vision-card,
+  .vm-mission-card,
+  .vm-pillar-item,
+  .vm-oversized-num,
+  .gsap-reveal-header {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

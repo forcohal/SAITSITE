@@ -1,0 +1,280 @@
+/* ==========================================================
+   ABOUT SAIT — Editorial composition
+   Premium · Asymmetric · Image-driven · Restrained
+   ========================================================== */
+
+/* ── Section wrapper ──────────────────────────────────────── */
+.about-section {
+  background-color: var(--color-bg);
+  padding-top: var(--spacing-section);
+  padding-bottom: var(--spacing-section);
+  border-top: 1px solid var(--color-border);
+  /* Wider than the default .container to give editorial breathing room */
+  max-width: 1160px;
+  margin: 0 auto;
+  padding-left: clamp(1.25rem, 5vw, 3.5rem);
+  padding-right: clamp(1.25rem, 5vw, 3.5rem);
+  overflow: hidden;
+}
+
+/* ── Section header row: ruler + editorial label ─────────── */
+.about-header-row {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.about-ruler {
+  display: block;
+  flex: 0 0 clamp(2rem, 6vw, 4rem);
+  height: 1px;
+  background-color: var(--color-accent);
+}
+
+.about-label {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+/* ── Outer layout: heading-left | image+feature-right ───── */
+.about-outer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(2rem, 4vw, 2.5rem);
+  align-items: start;
+}
+
+@media (min-width: 860px) {
+  .about-outer {
+    grid-template-columns: 5fr 7fr;   /* heading | image column */
+    gap: clamp(2.5rem, 5vw, 4.5rem);
+    align-items: start;
+  }
+}
+
+/* ── Left column — big editorial heading ────────────────── */
+.about-left {
+  /* Stick to the top of the composition on desktop */
+  padding-top: 0.25rem;
+}
+
+@media (min-width: 860px) {
+  .about-left {
+    position: sticky;
+    top: calc(var(--header-height) + 2rem);
+    /* Prevents heading from scrolling away while image is taller */
+    align-self: start;
+  }
+}
+
+.about-heading {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-display);
+  font-size: clamp(3.75rem, 10vw, 8rem);
+  font-weight: 400;
+  line-height: 0.9;
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+}
+
+/* Each line wraps in its own span for staggered animation */
+.about-heading-line {
+  display: block;
+  overflow: hidden; /* clips the y-translate reveal */
+  /* Add a smidge of padding so descenders don't clip */
+  padding-bottom: 0.06em;
+}
+
+/* ── Right column — image + burgundy block ──────────────── */
+.about-right {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* ── Large editorial photograph ─────────────────────────── */
+.about-image-wrap {
+  position: relative;
+  width: 100%;
+  /* Tall editorial crop — portrait feel */
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  /* clip-reveal base — GSAP will animate clipPath */
+  clip-path: inset(0% 0% 0% 0%);
+  flex-shrink: 0;
+}
+
+@media (min-width: 860px) {
+  .about-image-wrap {
+    aspect-ratio: 4 / 5;
+  }
+}
+
+.about-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  display: block;
+  /* Slight desaturation for editorial restraint */
+  filter: saturate(0.82);
+  transition: filter 0.8s ease;
+}
+
+.about-image:hover {
+  filter: saturate(1);
+}
+
+/* Thin inset border — editorial overlay */
+.about-image-border {
+  position: absolute;
+  inset: 10px;
+  border: 1px solid rgba(243, 240, 231, 0.3);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── Burgundy feature block ─────────────────────────────── */
+/*
+  On desktop the block sits below the image with a negative top
+  margin so it visually "bites into" the image bottom edge.
+  On mobile it simply follows beneath the image naturally.
+*/
+.about-burgundy-block {
+  background-color: var(--color-accent); /* #4A1F26 */
+  padding: clamp(1.75rem, 4vw, 2.75rem) clamp(1.5rem, 3.5vw, 2.5rem);
+  display: flex;
+  flex-direction: column;
+  /* Pull block upward to overlap image */
+  margin-top: clamp(-3rem, -6vw, -4.5rem);
+  /* Only as wide as necessary on desktop — feels asymmetric */
+  align-self: flex-start;
+  min-width: clamp(14rem, 50%, 22rem);
+  /* Hard right edge bleeds slightly for editorial asymmetry */
+  margin-left: auto;
+  position: relative;
+  z-index: 2;
+}
+
+@media (min-width: 860px) {
+  .about-burgundy-block {
+    /* Align to left of image column for visual tension */
+    margin-left: 0;
+    margin-right: auto;
+    min-width: clamp(15rem, 55%, 24rem);
+    margin-top: clamp(-3.5rem, -5vw, -5rem);
+  }
+}
+
+.about-burgundy-line {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 4.5vw, 3rem);
+  font-weight: 400;
+  line-height: 1.0;
+  color: var(--color-bg); /* cream on burgundy */
+  letter-spacing: -0.01em;
+}
+
+/* ── Body copy + meta row ───────────────────────────────── */
+.about-body-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-top: clamp(2.5rem, 6vw, 4rem);
+  gap: clamp(1.5rem, 3vw, 2rem);
+}
+
+@media (min-width: 860px) {
+  .about-body-row {
+    grid-template-columns: 5fr 7fr;  /* mirrors .about-outer */
+    gap: clamp(2.5rem, 5vw, 4.5rem);
+    margin-top: clamp(3rem, 6vw, 5rem);
+  }
+}
+
+/* Invisible spacer that mirrors the left heading column */
+.about-body-spacer {
+  display: none;
+}
+
+@media (min-width: 860px) {
+  .about-body-spacer {
+    display: block;
+  }
+}
+
+.about-body-col {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.75rem, 4vw, 2.75rem);
+}
+
+/* ── Description paragraphs ─────────────────────────────── */
+.about-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  /* Thin left rule — editorial accent */
+  padding-left: 1.25rem;
+  border-left: 1px solid var(--color-border);
+}
+
+.about-body p {
+  font-family: var(--font-body);
+  font-size: clamp(0.88rem, 1.35vw, 1rem);
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+}
+
+/* ── Meta table ─────────────────────────────────────────── */
+.about-meta {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--color-border);
+}
+
+.about-meta-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--color-border);
+  gap: 1rem;
+}
+
+.about-meta-item dt {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.about-meta-item dd {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  text-align: right;
+}
+
+/* ── Reduced motion ─────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .about-image-wrap,
+  .about-heading-line,
+  .about-burgundy-block,
+  .about-body,
+  .about-meta {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+}

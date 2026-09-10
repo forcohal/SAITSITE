@@ -1,0 +1,23 @@
+:root {
+  /* Fonts */
+  --font-display: 'DM Serif Display', serif;
+  --font-body: 'Manrope', sans-serif;
+
+  /* Colors - Premium Editorial Theme */
+  --color-bg: #F3F0E7; /* Cream/off-white */
+  --color-text-primary: #102D27; /* Deep dark green */
+  --color-text-secondary: rgba(16, 45, 39, 0.7); /* Muted dark green */
+  --color-accent: #4A1F26; /* Burgundy/wine */
+  --color-muted: #DCD5C5; /* Muted cream for accents/subtle backgrounds */
+  --color-border: rgba(16, 45, 39, 0.25); /* Thin borders */
+  
+  /* Stats Alternate Colors */
+  --stat-accent-green: #102D27;
+  --stat-accent-burgundy: #4A1F26;
+
+  /* Dimensions & Spacing */
+  --header-height: 80px;
+  --container-max-width: 900px; /* Narrower → brand and nav sit closer together */
+  --spacing-section: clamp(4rem, 10vw, 8rem);
+  --spacing-container: clamp(1rem, 5vw, 3rem);
+}

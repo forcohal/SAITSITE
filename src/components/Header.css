@@ -1,0 +1,190 @@
+/* ==========================================================
+   HEADER — EDITORIAL CREAM/GREEN STYLE
+   ========================================================== */
+
+.header-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+
+  /* Editorial header: warm cream background */
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+
+  /* Start hidden for GSAP intro animation */
+  opacity: 0;
+  visibility: hidden;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 clamp(1.5rem, 4vw, 3rem); /* generous side padding, no max-width cap */
+}
+
+/* ── Brand (Left) ── */
+.header-brand a {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 400; /* Serif display — weight 400 looks elegant */
+  letter-spacing: 0.08em;
+  color: var(--color-text-primary);
+  transition: color 0.25s ease;
+}
+
+.header-brand a:hover {
+  color: var(--color-accent);
+}
+
+/* ── Desktop Navigation (Right) ── */
+.header-nav {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .header-nav {
+    display: block;
+  }
+}
+
+.header-nav ul {
+  display: flex;
+  gap: clamp(1rem, 2vw, 1.75rem);
+  align-items: center;
+}
+
+.nav-link {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  transition: color 0.25s ease, opacity 0.25s ease;
+  position: relative;
+  display: inline-block;
+  padding: 0.25rem 0;
+}
+
+/* Thin underline on hover & active — editorial touch */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background-color: var(--color-accent);
+  transition: width 0.25s ease;
+}
+
+.nav-link:hover {
+  color: var(--color-accent);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ── Active navigation state ── */
+.nav-link.active {
+  color: var(--color-accent);
+}
+
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* ── Unimplemented / disabled state ── */
+.nav-link.disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+}
+
+.nav-link.disabled:hover {
+  color: var(--color-text-primary);
+}
+
+.nav-link.disabled:hover::after {
+  width: 0;
+}
+
+/* ── Mobile Menu Toggle ── */
+.mobile-menu-btn {
+  display: block;
+  color: var(--color-text-primary);
+  line-height: 0;
+}
+
+@media (min-width: 768px) {
+  .mobile-menu-btn {
+    display: none;
+  }
+}
+
+/* ── Mobile Drawer ── */
+.mobile-nav-drawer {
+  position: absolute;
+  top: var(--header-height);
+  left: 0;
+  width: 100%;
+  background-color: var(--color-bg);
+  padding: 2rem var(--spacing-container) 2.5rem;
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 12px 30px rgba(16, 45, 39, 0.08);
+}
+
+.mobile-nav-drawer ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.mobile-nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  transition: color 0.25s ease, padding 0.25s ease;
+  padding: 0.35rem 0;
+}
+
+.mobile-nav-link:hover {
+  color: var(--color-accent);
+}
+
+.mobile-nav-link.active {
+  color: var(--color-accent);
+  border-left: 2px solid var(--color-accent);
+  padding-left: 0.75rem;
+}
+
+.mobile-nav-link.disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+}
+
+.mobile-nav-badge {
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  background-color: rgba(16, 45, 39, 0.06);
+  padding: 0.15rem 0.45rem;
+  border-radius: 0;
+}

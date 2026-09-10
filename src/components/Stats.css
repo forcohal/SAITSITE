@@ -1,0 +1,70 @@
+.stats-section {
+  padding-top: var(--spacing-section);
+  padding-bottom: var(--spacing-section);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 5;
+  
+  /* Initial state for GSAP */
+  opacity: 0;
+}
+
+.stats-header {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  letter-spacing: 0.15em;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 0.75rem;
+}
+
+.stat-label {
+  font-family: var(--font-body);
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.05em;
+}
+
+/* Accent Colors — alternates green / burgundy */
+.stat-green    { color: var(--stat-accent-green); }
+.stat-burgundy { color: var(--stat-accent-burgundy); }
+
+.stats-cta-wrapper {
+  margin-top: 6rem;
+  display: flex;
+  justify-content: center;
+}

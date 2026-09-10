@@ -1,0 +1,684 @@
+/* ==========================================================
+   ASSOCIATION & PEOPLE — Editorial Leadership & Teams
+   Student-Led · Creative · Dynamic · Sophisticated
+   ========================================================== */
+
+.assoc-section {
+  background-color: var(--color-bg);
+  padding-top: var(--spacing-section);
+  padding-bottom: var(--spacing-section);
+  border-top: 1px solid var(--color-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.assoc-container {
+  max-width: 1160px; /* consistent wide editorial grid */
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 5vw, 3.5rem);
+}
+
+/* ── 1. Section Header ────────────────────────────────────── */
+.assoc-header {
+  margin-bottom: clamp(3.5rem, 7vw, 5.5rem);
+}
+
+.assoc-header-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.assoc-label-num {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--color-accent);
+}
+
+.assoc-label-divider {
+  color: var(--color-accent);
+  font-size: 0.68rem;
+  opacity: 0.6;
+}
+
+.assoc-label-text {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.assoc-header-main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: end;
+}
+
+@media (min-width: 860px) {
+  .assoc-header-main {
+    grid-template-columns: 1.2fr 1fr;
+    gap: clamp(2.5rem, 5vw, 5rem);
+  }
+}
+
+.assoc-heading {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 400;
+  line-height: 0.95;
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+}
+
+.assoc-intro-body {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  max-width: 520px;
+  border-left: 1px solid var(--color-border);
+  padding-left: 1.25rem;
+}
+
+/* ── Section Subsections ──────────────────────────────────── */
+.assoc-subsection {
+  margin-bottom: clamp(4rem, 8vw, 6.5rem);
+}
+
+.assoc-subsection:last-child {
+  margin-bottom: 0;
+}
+
+.assoc-sub-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+@media (min-width: 768px) {
+  .assoc-sub-header {
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+}
+
+.assoc-sub-badge {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.assoc-sub-num {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--color-accent);
+}
+
+.assoc-sub-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 400;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+}
+
+.assoc-sub-tagline {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  max-width: 440px;
+}
+
+/* ── Inset Image Border ───────────────────────────────────── */
+.assoc-image-border {
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(243, 240, 231, 0.35);
+  pointer-events: none;
+  z-index: 2;
+  transition: inset 0.4s ease, border-color 0.4s ease;
+}
+
+/* ── 2. Featured Chairperson Profile ──────────────────────── */
+.assoc-chair-wrapper {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  padding: clamp(1.75rem, 4vw, 3.5rem);
+  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+  position: relative;
+}
+
+.assoc-chair-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+@media (min-width: 860px) {
+  .assoc-chair-grid {
+    grid-template-columns: 5fr 7fr;
+  }
+}
+
+.assoc-chair-image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background-color: var(--color-muted);
+}
+
+.assoc-chair-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+  filter: saturate(0.85);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+}
+
+.assoc-chair-wrapper:hover .assoc-chair-image {
+  transform: scale(1.03);
+  filter: saturate(1);
+}
+
+.assoc-chair-wrapper:hover .assoc-image-border {
+  inset: 12px;
+  border-color: rgba(243, 240, 231, 0.55);
+}
+
+.assoc-chair-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.assoc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.assoc-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+}
+
+.assoc-badge-label {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.assoc-chair-name {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1.05;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+  margin-bottom: 0.35rem;
+}
+
+.assoc-chair-year {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.assoc-chair-bio {
+  font-family: var(--font-body);
+  font-size: clamp(0.92rem, 1.3vw, 1.02rem);
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  margin-bottom: 2rem;
+}
+
+.assoc-chair-quote {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--color-text-primary);
+  border-left: 2px solid var(--color-accent);
+  padding-left: 1.25rem;
+  margin: 0;
+  font-style: italic;
+}
+
+/* ── Supporting Executive Grid ────────────────────────────── */
+.assoc-exec-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.25rem, 2.5vw, 1.75rem);
+}
+
+@media (min-width: 580px) {
+  .assoc-exec-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .assoc-exec-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.assoc-exec-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  padding: 1rem;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s ease,
+              box-shadow 0.4s ease;
+}
+
+.assoc-exec-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-accent);
+  box-shadow: 0 10px 24px rgba(74, 31, 38, 0.06);
+}
+
+.assoc-exec-image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  background-color: var(--color-muted);
+}
+
+.assoc-exec-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+  filter: saturate(0.85);
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.assoc-exec-card:hover .assoc-exec-image {
+  transform: scale(1.04);
+  filter: saturate(1);
+}
+
+.assoc-exec-card:hover .assoc-image-border {
+  inset: 10px;
+  border-color: rgba(243, 240, 231, 0.6);
+}
+
+.assoc-exec-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.assoc-exec-role {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 0.35rem;
+}
+
+.assoc-exec-name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--color-text-primary);
+  margin-bottom: 0.65rem;
+}
+
+.assoc-exec-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-top: auto;
+  padding-top: 0.65rem;
+  border-top: 1px solid rgba(16, 45, 39, 0.1);
+}
+
+.assoc-exec-year {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.assoc-exec-focus {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: var(--color-text-secondary);
+}
+
+/* ── 3. Interactive Team Switcher ─────────────────────────── */
+.assoc-team-nav-container {
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.assoc-team-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 0.85rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.assoc-team-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.assoc-team-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  background-color: transparent;
+  border: 1px solid var(--color-border);
+  padding: 0.65rem 1.25rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.assoc-tab-tag {
+  font-size: 0.68rem;
+  opacity: 0.65;
+}
+
+.assoc-team-tab-btn:hover {
+  color: var(--color-text-primary);
+  border-color: var(--color-text-primary);
+  background-color: rgba(16, 45, 39, 0.04);
+}
+
+.assoc-team-tab-btn.active {
+  color: var(--color-bg);
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.assoc-team-tab-btn.active .assoc-tab-tag {
+  opacity: 0.85;
+}
+
+/* ── Active Team Content Area ─────────────────────────────── */
+.assoc-team-content-area {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 4vw, 3rem);
+}
+
+/* Team Overview Card */
+.assoc-team-overview {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-accent);
+  padding: clamp(1.5rem, 3.5vw, 2.5rem);
+}
+
+@media (min-width: 860px) {
+  .assoc-team-overview {
+    grid-template-columns: 2fr 1fr;
+    align-items: center;
+  }
+}
+
+.assoc-team-overview-main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.assoc-team-tagline-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.assoc-team-num-badge {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--color-accent);
+}
+
+.assoc-team-full-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.15rem);
+  font-weight: 400;
+  color: var(--color-text-primary);
+  line-height: 1.2;
+}
+
+.assoc-team-desc {
+  font-family: var(--font-body);
+  font-size: clamp(0.9rem, 1.3vw, 1rem);
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+}
+
+.assoc-team-overview-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-top: 1px solid var(--color-border);
+  padding-top: 1.25rem;
+}
+
+@media (min-width: 860px) {
+  .assoc-team-overview-meta {
+    border-top: none;
+    border-left: 1px solid var(--color-border);
+    padding-top: 0;
+    padding-left: 2rem;
+  }
+}
+
+.assoc-team-lead-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.assoc-meta-label {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.assoc-meta-value {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--color-text-primary);
+}
+
+.assoc-team-count-box {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-text-secondary);
+}
+
+.assoc-meta-icon {
+  color: var(--color-accent);
+}
+
+.assoc-meta-count {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* ── Team Members Grid ────────────────────────────────────── */
+.assoc-members-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.25rem, 3vw, 2rem);
+}
+
+@media (min-width: 580px) {
+  .assoc-members-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .assoc-members-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.assoc-member-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  padding: 1.25rem;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s ease,
+              box-shadow 0.4s ease;
+}
+
+.assoc-member-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-accent);
+  box-shadow: 0 12px 28px rgba(74, 31, 38, 0.06);
+}
+
+.assoc-member-image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+  background-color: var(--color-muted);
+}
+
+.assoc-member-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+  filter: saturate(0.85);
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.assoc-member-card:hover .assoc-member-image {
+  transform: scale(1.04);
+  filter: saturate(1);
+}
+
+.assoc-member-card:hover .assoc-image-border {
+  inset: 10px;
+  border-color: rgba(243, 240, 231, 0.6);
+}
+
+.assoc-member-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.assoc-member-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.35rem;
+}
+
+.assoc-member-role {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.assoc-member-year {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  color: var(--color-text-secondary);
+}
+
+.assoc-member-name {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--color-text-primary);
+  margin-bottom: 0.65rem;
+}
+
+.assoc-member-spec {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+  border-top: 1px solid rgba(16, 45, 39, 0.1);
+  padding-top: 0.65rem;
+  margin-top: auto;
+}
+
+/* ── Reduced Motion ───────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .assoc-chair-wrapper,
+  .assoc-exec-card,
+  .assoc-member-card,
+  .assoc-team-tab-btn,
+  .gsap-reveal-header {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    clip-path: none !important;
+  }
+}

@@ -1,0 +1,71 @@
+/* ==========================================================
+   HERO — EDITORIAL CINEMATIC STYLE
+   ========================================================== */
+
+.hero-section {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  /* Sits above Stats initially */
+  z-index: 10;
+  background-color: var(--color-bg);
+}
+
+.hero-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* Prevent horizontal bleed on small screens */
+  padding: 0 var(--spacing-container);
+  width: 100%;
+}
+
+/* ── Giant SAIT display text ── */
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 400;            /* Serif display looks best at regular weight */
+  font-style: normal;
+
+  /* Fluid size — never causes horizontal overflow */
+  font-size: clamp(4.5rem, 22vw, 14rem);
+  line-height: 0.92;
+  letter-spacing: -0.01em;
+
+  color: var(--color-text-primary);
+  margin: 0;
+
+  /* GSAP start state */
+  opacity: 0;
+}
+
+/* ── Subtitle ── */
+.hero-subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(0.65rem, 1.5vw, 0.95rem);
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+
+  color: var(--color-text-secondary);
+
+  /* Breathing room below the giant title */
+  margin-top: 1.75rem;
+  line-height: 1.8;
+
+  /* GSAP start state */
+  opacity: 0;
+}
+
+/* ── Thin decorative rule between title and subtitle ── */
+.hero-rule {
+  display: block;
+  width: 40px;
+  height: 1px;
+  background-color: var(--color-border);
+  margin: 1.25rem auto 0;
+}

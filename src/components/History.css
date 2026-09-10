@@ -1,0 +1,267 @@
+/* ==========================================================
+   HISTORY — Editorial Timeline
+   Vertical · Typographic · Asymmetric
+   ========================================================== */
+
+.history-section {
+  background-color: var(--color-bg);
+  padding-top: var(--spacing-section);
+  padding-bottom: var(--spacing-section);
+  border-top: 1px solid var(--color-border);
+  position: relative;
+  overflow: hidden; /* clip the giant background text */
+}
+
+/* ── Decorative Background Typography ─────────────────────── */
+.history-bg-text {
+  position: absolute;
+  top: 5%;
+  right: -5%;
+  font-family: var(--font-display);
+  font-size: clamp(15rem, 35vw, 45rem); /* Massive scale */
+  color: var(--color-text-primary);
+  opacity: 0.03; /* Barely visible */
+  line-height: 0.75;
+  user-select: none;
+  pointer-events: none;
+  z-index: 0;
+  letter-spacing: -0.05em;
+}
+
+/* ── Container ────────────────────────────────────────────── */
+.history-container {
+  max-width: 1160px; /* same wide editorial grid as About/Dept */
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 5vw, 3.5rem);
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Section Intro ────────────────────────────────────────── */
+.history-intro {
+  max-width: 640px;
+  margin-bottom: clamp(4rem, 8vw, 6rem);
+}
+
+.history-label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 1.5rem;
+}
+
+.history-heading {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 400;
+  line-height: 0.95;
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+
+.history-heading-line {
+  display: block;
+}
+
+.history-intro-body {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+}
+
+/* ── Main Layout Split ────────────────────────────────────── */
+.history-content-split {
+  display: flex;
+  flex-direction: column-reverse; /* Mobile: image bottom, timeline top */
+  gap: clamp(4rem, 8vw, 6rem);
+}
+
+@media (min-width: 900px) {
+  .history-content-split {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}
+
+/* ── Vertical Timeline ────────────────────────────────────── */
+.history-timeline {
+  position: relative;
+  flex: 1;
+  max-width: 600px;
+  /* Push it slightly right on desktop for asymmetry */
+  margin-left: 0;
+}
+
+@media (min-width: 900px) {
+  .history-timeline {
+    margin-left: clamp(2rem, 8vw, 6rem);
+  }
+}
+
+/* The continuous tracking line */
+.history-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  background-color: rgba(16, 45, 39, 0.15); /* var(--color-border) equivalent */
+  transform-origin: top;
+}
+
+/* ── Timeline Nodes ───────────────────────────────────────── */
+.history-node {
+  position: relative;
+  padding-left: clamp(3rem, 6vw, 4.5rem);
+  margin-bottom: clamp(3.5rem, 7vw, 5rem);
+}
+
+.history-node:last-child {
+  margin-bottom: 0;
+}
+
+/* Marker: absolutely positioned to sit exactly on the line */
+.history-marker {
+  position: absolute;
+  /* The dot is 11px wide. The line is at 0. So left: -5px centers the dot. */
+  left: -5px; 
+  /* Vertically align with the title baseline roughly */
+  top: 2rem; 
+  display: flex;
+  align-items: center;
+  width: clamp(3rem, 6vw, 4.5rem); /* Same as node padding-left */
+}
+
+@media (min-width: 640px) {
+  .history-marker {
+    top: 2.2rem;
+  }
+}
+
+.history-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background-color: var(--color-bg);
+  border: 2px solid var(--color-accent);
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+.history-branch {
+  flex-grow: 1;
+  height: 1px;
+  background-color: rgba(16, 45, 39, 0.15);
+  margin-left: -1px; /* overlap dot border */
+  margin-right: 1.25rem; /* space before text content */
+}
+
+/* ── Node Content ─────────────────────────────────────────── */
+.history-node-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.history-meta {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--color-text-secondary);
+  margin-bottom: 1rem;
+}
+
+.history-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4.5vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--color-text-primary);
+  margin-bottom: 1rem;
+}
+
+.history-year {
+  color: var(--color-accent);
+  margin-right: 0.5rem;
+}
+
+.history-text {
+  font-family: var(--font-body);
+  font-size: clamp(0.88rem, 1.35vw, 1rem);
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+}
+
+/* ── Right: Sticky Editorial Image ────────────────────────── */
+.history-image-col {
+  width: 100%;
+}
+
+@media (min-width: 900px) {
+  .history-image-col {
+    width: clamp(240px, 28vw, 340px);
+    flex-shrink: 0;
+  }
+}
+
+.history-image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+}
+
+@media (min-width: 900px) {
+  .history-image-wrap {
+    /* Keep it fixed in the viewport as the timeline scrolls */
+    position: sticky;
+    top: calc(var(--header-height) + 3rem);
+    aspect-ratio: 4 / 5;
+  }
+}
+
+.history-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+  filter: saturate(0.82);
+  transition: filter 0.8s ease;
+}
+
+.history-image:hover {
+  filter: saturate(1);
+}
+
+/* Thin inset border — editorial touch */
+.history-image-border {
+  position: absolute;
+  inset: 10px;
+  border: 1px solid rgba(243, 240, 231, 0.3);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── Reduced Motion ───────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .history-line,
+  .history-marker,
+  .history-image-wrap,
+  .gsap-reveal,
+  .history-intro > * {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+}
