@@ -1,0 +1,460 @@
+/* ==========================================================
+   ALUMNI — Editorial Stories & Career Trajectories
+   Narrative · Elegant · Structured · Editorial
+   ========================================================== */
+
+.alumni-section {
+  background-color: var(--color-bg);
+  padding-top: var(--spacing-section);
+  padding-bottom: var(--spacing-section);
+  border-top: 1px solid var(--color-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.alumni-container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 5vw, 3.5rem);
+}
+
+/* ── 1. Section Header ────────────────────────────────────── */
+.alumni-header {
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.alumni-header-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.alumni-label-num {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--color-accent);
+}
+
+.alumni-label-divider {
+  color: var(--color-accent);
+  font-size: 0.68rem;
+  opacity: 0.6;
+}
+
+.alumni-label-text {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.alumni-badge-prototype {
+  font-family: var(--font-body);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent);
+  margin-left: 0.5rem;
+}
+
+.alumni-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  font-weight: 400;
+  line-height: 1.05;
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+}
+
+.alumni-intro-body {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.3vw, 1.08rem);
+  line-height: 1.75;
+  color: var(--color-text-secondary);
+  max-width: 680px;
+  border-left: 1px solid var(--color-border);
+  padding-left: 1.25rem;
+}
+
+/* ── 2. Dominant Alumni Spotlight ─────────────────────────── */
+.alumni-spotlight-wrapper {
+  margin-bottom: clamp(3.5rem, 7vw, 5.5rem);
+}
+
+.alumni-spotlight-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+}
+
+@media (min-width: 900px) {
+  .alumni-spotlight-card {
+    grid-template-columns: 5fr 7fr;
+  }
+}
+
+.alumni-spotlight-visual-col {
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(16, 45, 39, 0.05);
+  border-bottom: 1px solid var(--color-border);
+}
+
+@media (min-width: 900px) {
+  .alumni-spotlight-visual-col {
+    border-bottom: none;
+    border-right: 1px solid var(--color-border);
+  }
+}
+
+.alumni-spotlight-image-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 340px;
+}
+
+@media (min-width: 900px) {
+  .alumni-spotlight-image-wrap {
+    min-height: 480px;
+  }
+}
+
+.alumni-spotlight-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(18%) contrast(102%);
+}
+
+.alumni-image-border {
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(243, 240, 231, 0.35);
+  pointer-events: none;
+}
+
+.alumni-year-badge {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+  padding: 0.35rem 0.75rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.alumni-grad-icon {
+  color: var(--color-bg);
+}
+
+/* Spotlight Content Column */
+.alumni-spotlight-content {
+  padding: clamp(2rem, 4.5vw, 3.5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.alumni-spotlight-meta-top {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+}
+
+.alumni-spotlight-tag {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.alumni-spotlight-bullet {
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  opacity: 0.6;
+}
+
+.alumni-spotlight-subtag {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+
+.alumni-spotlight-name {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 400;
+  color: var(--color-text-primary);
+  line-height: 1.1;
+  margin-bottom: 0.4rem;
+}
+
+.alumni-spotlight-role-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.alumni-spotlight-role {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.alumni-spotlight-org {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: var(--color-text-secondary);
+}
+
+.alumni-spotlight-story {
+  font-family: var(--font-body);
+  font-size: clamp(0.92rem, 1.2vw, 1.02rem);
+  line-height: 1.75;
+  color: var(--color-text-primary);
+  margin-bottom: 1.5rem;
+}
+
+.alumni-spotlight-quote {
+  border-left: 2px solid var(--color-accent);
+  padding-left: 1.25rem;
+  margin-bottom: 1.75rem;
+  position: relative;
+}
+
+.alumni-quote-icon {
+  color: var(--color-accent);
+  opacity: 0.5;
+  margin-bottom: 0.35rem;
+}
+
+.alumni-quote-text {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--color-text-primary);
+}
+
+.alumni-skills-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.alumni-skill-pill {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 0.3rem 0.7rem;
+  background-color: rgba(220, 213, 197, 0.4);
+  color: var(--color-text-primary);
+  border: 1px solid rgba(16, 45, 39, 0.15);
+}
+
+/* ── 3. Compact Alumni Profiles ───────────────────────────── */
+.alumni-profiles-wrapper {
+  border-top: 1px solid var(--color-border);
+  padding-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+.alumni-profiles-header {
+  margin-bottom: 2rem;
+}
+
+.alumni-profiles-title-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.alumni-profiles-num {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--color-accent);
+}
+
+.alumni-profiles-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 2.35rem);
+  font-weight: 400;
+  color: var(--color-text-primary);
+  line-height: 1.15;
+}
+
+.alumni-profiles-subtext {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  max-width: 680px;
+}
+
+.alumni-profiles-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 720px) {
+  .alumni-profiles-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.alumni-profile-card {
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+  padding: clamp(1.25rem, 2.5vw, 1.75rem);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.22s ease;
+}
+
+.alumni-profile-card:hover {
+  background-color: rgba(220, 213, 197, 0.3);
+  border-color: var(--color-text-primary);
+}
+
+.alumni-card-top {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.85rem;
+}
+
+.alumni-card-avatar-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.alumni-card-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(20%);
+}
+
+.alumni-card-identity {
+  display: flex;
+  flex-direction: column;
+}
+
+.alumni-card-name {
+  font-family: var(--font-display);
+  font-size: 1.18rem;
+  font-weight: 400;
+  color: var(--color-text-primary);
+  line-height: 1.2;
+}
+
+.alumni-card-year {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.alumni-card-role-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  margin-bottom: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.alumni-card-role {
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.alumni-card-org {
+  color: var(--color-text-secondary);
+}
+
+.alumni-card-focus-tag {
+  display: inline-block;
+  margin-bottom: 0.85rem;
+}
+
+.alumni-card-focus-tag span {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.5rem;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+}
+
+.alumni-card-achievement {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 1px dashed rgba(16, 45, 39, 0.15);
+}
+
+.alumni-footnote {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  color: var(--color-text-secondary);
+  opacity: 0.85;
+}
+
+.alumni-footnote-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  display: inline-block;
+}

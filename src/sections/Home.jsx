@@ -14,6 +14,12 @@ import FacultyAdministration from '../components/FacultyAdministration';
 import AcademicResources from '../components/AcademicResources';
 import AssociationPeople from '../components/AssociationPeople';
 import EventsActivities from '../components/EventsActivities';
+import PlacementsCareers from '../components/PlacementsCareers';
+import Alumni from '../components/Alumni';
+import HallOfFame from '../components/HallOfFame';
+import StudentActivityLogger from '../components/StudentActivityLogger';
+import Notifications from '../components/Notifications';
+import FooterContact from '../components/FooterContact';
 import './Home.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -97,6 +103,12 @@ export default function Home() {
       <AcademicResources />
       <AssociationPeople />
       <EventsActivities />
+      <PlacementsCareers />
+      <Alumni />
+      <HallOfFame />
+      <StudentActivityLogger />
+      <Notifications />
+      <FooterContact />
     </div>
   );
 }

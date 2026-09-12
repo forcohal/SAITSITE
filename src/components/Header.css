@@ -49,7 +49,7 @@
   display: none;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .header-nav {
     display: block;
   }
@@ -57,21 +57,22 @@
 
 .header-nav ul {
   display: flex;
-  gap: clamp(1rem, 2vw, 1.75rem);
+  gap: clamp(0.5rem, 0.9vw, 1.15rem);
   align-items: center;
 }
 
 .nav-link {
   font-family: var(--font-body);
-  font-size: 0.78rem;
+  font-size: clamp(0.7rem, 0.85vw, 0.76rem);
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-text-primary);
   transition: color 0.25s ease, opacity 0.25s ease;
   position: relative;
   display: inline-block;
   padding: 0.25rem 0;
+  white-space: nowrap;
 }
 
 /* Thin underline on hover & active — editorial touch */
@@ -124,7 +125,7 @@
   line-height: 0;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .mobile-menu-btn {
     display: none;
   }

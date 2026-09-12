@@ -1,0 +1,661 @@
+/* ==========================================================
+   FOOTER & CONTACT — Final Editorial Destination
+   Authoritative · Cohesive · Accessible · Editorial
+   ========================================================== */
+
+.contact-footer-group {
+  position: relative;
+}
+
+/* ── 1. Contact Section ───────────────────────────────────── */
+.contact-section {
+  background-color: var(--color-bg);
+  padding-top: var(--spacing-section);
+  padding-bottom: var(--spacing-section);
+  border-top: 1px solid var(--color-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 5vw, 3.5rem);
+}
+
+.contact-header {
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.contact-header-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.contact-label-num {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--color-accent);
+}
+
+.contact-label-divider {
+  color: var(--color-accent);
+  font-size: 0.68rem;
+  opacity: 0.6;
+}
+
+.contact-label-text {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.contact-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  font-weight: 400;
+  line-height: 1.05;
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+}
+
+.contact-intro-body {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.3vw, 1.08rem);
+  line-height: 1.75;
+  color: var(--color-text-secondary);
+  max-width: 680px;
+  border-left: 1px solid var(--color-border);
+  padding-left: 1.25rem;
+}
+
+/* ── Contact Grid: Info & Form ────────────────────────────── */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+@media (min-width: 960px) {
+  .contact-grid {
+    grid-template-columns: 5.5fr 6.5fr;
+    gap: 3.5rem;
+  }
+}
+
+/* Left Info Column */
+.contact-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.contact-institution-card {
+  border: 1px solid var(--color-border);
+  background-color: rgba(220, 213, 197, 0.15);
+  padding: 1.5rem;
+}
+
+.contact-card-badge {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.contact-inst-name {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: var(--color-text-primary);
+  line-height: 1.2;
+  margin-bottom: 0.35rem;
+}
+
+.contact-inst-division {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 0.2rem;
+}
+
+.contact-inst-school {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+  line-height: 1.45;
+}
+
+/* Touchpoints list */
+.contact-touchpoints-list {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-border);
+}
+
+.touchpoint-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+}
+
+.touchpoint-row:last-child {
+  border-bottom: none;
+}
+
+.touchpoint-icon {
+  color: var(--color-accent);
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+.touchpoint-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.touchpoint-label {
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.touchpoint-value {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--color-text-primary);
+  line-height: 1.4;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a.touchpoint-value:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+/* Location Map Card */
+.contact-map-card {
+  border: 1px solid var(--color-border);
+  background-color: rgba(220, 213, 197, 0.25);
+  padding: 1.5rem;
+  position: relative;
+}
+
+.map-card-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.map-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.map-pin-pulse {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  margin-top: 0.4rem;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.map-pin-pulse::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1px solid var(--color-accent);
+  animation: pulsePin 2s infinite ease-out;
+}
+
+@keyframes pulsePin {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+.map-inst-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--color-text-primary);
+  line-height: 1.2;
+}
+
+.map-inst-sub {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--color-text-secondary);
+}
+
+.map-coords-note {
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.map-view-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-top: 0.35rem;
+  transition: color 0.2s ease, gap 0.2s ease;
+  width: fit-content;
+}
+
+.map-view-btn:hover {
+  color: var(--color-text-primary);
+  gap: 0.6rem;
+}
+
+/* Social Channels */
+.contact-socials-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.socials-label {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.socials-links-row {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.contact-social-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  transition: all 0.2s ease;
+}
+
+.contact-social-pill:hover {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+  border-color: var(--color-accent);
+}
+
+/* Right Form Column */
+.contact-form-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form-card {
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+  padding: clamp(1.5rem, 3.5vw, 2.5rem);
+  height: 100%;
+}
+
+.form-card-header {
+  margin-bottom: 1.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.form-card-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.5vw, 1.85rem);
+  font-weight: 400;
+  color: var(--color-text-primary);
+  margin-bottom: 0.35rem;
+}
+
+.form-card-desc {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.contact-form-element {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.contact-form-label {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+}
+
+.contact-form-label .req {
+  color: var(--color-accent);
+}
+
+.contact-form-input,
+.contact-form-textarea {
+  width: 100%;
+  padding: 0.75rem 0.95rem;
+  border: 1px solid var(--color-border);
+  background-color: rgba(220, 213, 197, 0.2);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--color-text-primary);
+  outline: none;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+  border-radius: 0;
+  resize: vertical;
+}
+
+.contact-form-input:focus,
+.contact-form-textarea:focus {
+  border-color: var(--color-text-primary);
+  background-color: var(--color-bg);
+}
+
+.contact-submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.95rem 1.8rem;
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid var(--color-accent);
+  cursor: pointer;
+  transition: all 0.22s ease;
+  align-self: flex-start;
+  margin-top: 0.35rem;
+}
+
+.contact-submit-btn:hover {
+  background-color: var(--color-text-primary);
+  border-color: var(--color-text-primary);
+}
+
+.contact-form-note {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  color: var(--color-text-secondary);
+  opacity: 0.8;
+  font-style: italic;
+  margin-top: 0.35rem;
+}
+
+/* Success State */
+.contact-success-state {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 2rem 0;
+}
+
+.success-icon {
+  color: var(--color-accent);
+}
+
+.success-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--color-text-primary);
+}
+
+.success-desc {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--color-text-secondary);
+  max-width: 480px;
+}
+
+.success-reset-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  border-bottom: 1px solid var(--color-accent);
+  padding-bottom: 0.15rem;
+  cursor: pointer;
+}
+
+/* ── 2. Editorial Site Footer ─────────────────────────────── */
+.site-footer {
+  background-color: var(--color-text-primary); /* Deep rich green */
+  color: var(--color-bg);
+  padding: clamp(3.5rem, 7vw, 5.5rem) 0 clamp(2.5rem, 5vw, 3.5rem);
+  border-top: 1px solid rgba(243, 240, 231, 0.12);
+  position: relative;
+}
+
+.footer-container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 5vw, 3.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 2.75rem;
+}
+
+/* Footer Top Row */
+.footer-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-bottom: 2.25rem;
+  border-bottom: 1px solid rgba(243, 240, 231, 0.12);
+}
+
+.footer-brand-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.footer-brand-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: var(--color-bg);
+  text-decoration: none;
+  line-height: 1;
+  transition: opacity 0.2s ease;
+}
+
+.footer-brand-title:hover {
+  opacity: 0.85;
+}
+
+.footer-brand-full {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: rgba(243, 240, 231, 0.85);
+  letter-spacing: 0.02em;
+}
+
+.footer-brand-dept {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: rgba(243, 240, 231, 0.55);
+}
+
+.footer-back-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--color-bg);
+  padding: 0.5rem 0.85rem;
+  border: 1px solid rgba(243, 240, 231, 0.25);
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.footer-back-top:hover {
+  background-color: rgba(243, 240, 231, 0.12);
+  border-color: var(--color-bg);
+}
+
+/* Footer Navigation Grid */
+.footer-nav-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(0.75rem, 1.8vw, 2rem);
+  padding: 0;
+  margin: 0;
+}
+
+.footer-nav-item {
+  list-style: none;
+}
+
+.footer-nav-link {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(243, 240, 231, 0.75);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+.footer-nav-link:hover {
+  color: var(--color-bg);
+}
+
+/* Footer Bottom Meta */
+.footer-bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(243, 240, 231, 0.12);
+}
+
+.footer-copy-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.footer-copyright {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: rgba(243, 240, 231, 0.65);
+}
+
+.footer-challenge-note {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  color: rgba(243, 240, 231, 0.45);
+  font-style: italic;
+}
+
+.footer-socials-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.footer-social-link {
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(243, 240, 231, 0.75);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-social-link:hover {
+  color: var(--color-bg);
+}
+
+/* Responsive adjustments */
+@media (max-width: 680px) {
+  .footer-bottom-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-socials-wrap {
+    gap: 1rem;
+  }
+}

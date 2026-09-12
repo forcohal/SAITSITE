@@ -3,13 +3,17 @@ import { Menu, X } from 'lucide-react';
 import './Header.css';
 
 const navLinks = [
-  { name: 'Home',       href: '#home',       id: 'home',       implemented: true },
-  { name: 'About',      href: '#about',      id: 'about',      implemented: true },
-  { name: 'Department', href: '#department', id: 'department', implemented: true },
-  { name: 'People',     href: '#people',     id: 'people',     implemented: true },
-  { name: 'Events',     href: '#events',     id: 'events',     implemented: true },
-  { name: 'Careers',    href: '#careers',    id: 'careers',    implemented: false },
-  { name: 'Alumni',     href: '#alumni',     id: 'alumni',     implemented: false },
+  { name: 'Home',         href: '#home',          id: 'home',          implemented: true },
+  { name: 'About',        href: '#about',         id: 'about',         implemented: true },
+  { name: 'Department',   href: '#department',    id: 'department',    implemented: true },
+  { name: 'People',       href: '#people',        id: 'people',        implemented: true },
+  { name: 'Events',       href: '#events',        id: 'events',        implemented: true },
+  { name: 'Careers',      href: '#careers',       id: 'careers',       implemented: true },
+  { name: 'Alumni',       href: '#alumni',        id: 'alumni',        implemented: true },
+  { name: 'Hall of Fame', href: '#hall-of-fame',  id: 'hall-of-fame',  implemented: true },
+  { name: 'Activity',     href: '#activity',      id: 'activity',      implemented: true },
+  { name: 'Updates',      href: '#notifications', id: 'notifications', implemented: true },
+  { name: 'Contact',      href: '#contact',       id: 'contact',       implemented: true },
 ];
 
 export default function Header() {
@@ -18,11 +22,17 @@ export default function Header() {
 
   useEffect(() => {
     const trackedSections = [
-      { navId: 'home',       elementId: 'home' },
-      { navId: 'about',      elementId: 'about' },
-      { navId: 'department', elementId: 'department' },
-      { navId: 'people',     elementId: 'people' },
-      { navId: 'events',     elementId: 'events' },
+      { navId: 'home',          elementId: 'home' },
+      { navId: 'about',         elementId: 'about' },
+      { navId: 'department',    elementId: 'department' },
+      { navId: 'people',        elementId: 'people' },
+      { navId: 'events',        elementId: 'events' },
+      { navId: 'careers',       elementId: 'careers' },
+      { navId: 'alumni',        elementId: 'alumni' },
+      { navId: 'hall-of-fame',  elementId: 'hall-of-fame' },
+      { navId: 'activity',      elementId: 'activity' },
+      { navId: 'notifications', elementId: 'notifications' },
+      { navId: 'contact',       elementId: 'contact' },
     ];
 
     const handleScroll = () => {
@@ -39,7 +49,7 @@ export default function Header() {
 
       // 2. If at bottom of page, highlight the last section
       if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 50) {
-        setActiveId('people');
+        setActiveId('contact');
         return;
       }
 

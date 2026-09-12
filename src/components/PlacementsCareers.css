@@ -1,0 +1,572 @@
+/* ==========================================================
+   PLACEMENTS & CAREERS — Editorial Career Platform
+   Analytical · Refined · Data-Driven · Structured
+   ========================================================== */
+
+.careers-section {
+  background-color: var(--color-bg);
+  padding-top: var(--spacing-section);
+  padding-bottom: var(--spacing-section);
+  border-top: 1px solid var(--color-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.careers-container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 5vw, 3.5rem);
+}
+
+/* ── 1. Section Header ────────────────────────────────────── */
+.careers-header {
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.careers-header-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.careers-label-num {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--color-accent);
+}
+
+.careers-label-divider {
+  color: var(--color-accent);
+  font-size: 0.68rem;
+  opacity: 0.6;
+}
+
+.careers-label-text {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.careers-badge-prototype {
+  font-family: var(--font-body);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent);
+  margin-left: 0.5rem;
+}
+
+.careers-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  font-weight: 400;
+  line-height: 1.05;
+  color: var(--color-text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
+}
+
+.careers-intro-body {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.3vw, 1.08rem);
+  line-height: 1.75;
+  color: var(--color-text-secondary);
+  max-width: 680px;
+  border-left: 1px solid var(--color-border);
+  padding-left: 1.25rem;
+}
+
+/* ── 2. Placement Statistics Row ──────────────────────────── */
+.careers-stats-wrapper {
+  margin-bottom: clamp(3rem, 6vw, 4.5rem);
+}
+
+.careers-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background-color: var(--color-border);
+  border: 1px solid var(--color-border);
+}
+
+@media (min-width: 860px) {
+  .careers-stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.careers-stat-cell {
+  background-color: var(--color-bg);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: background-color 0.2s ease;
+}
+
+.careers-stat-cell:hover {
+  background-color: rgba(220, 213, 197, 0.28);
+}
+
+.careers-stat-num {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.careers-stat-cell.accent-green .careers-stat-num {
+  color: var(--color-text-primary);
+}
+
+.careers-stat-cell.accent-burgundy .careers-stat-num {
+  color: var(--color-accent);
+}
+
+.careers-stat-label {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.careers-stat-context {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+}
+
+.careers-stats-footnote {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  color: var(--color-text-secondary);
+  opacity: 0.85;
+}
+
+.careers-footnote-indicator {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  display: inline-block;
+}
+
+/* ── 3. Insights Grid (Visual Data & Recruiters Split) ─────── */
+.careers-insights-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: clamp(3.5rem, 6vw, 5rem);
+}
+
+@media (min-width: 900px) {
+  .careers-insights-grid {
+    grid-template-columns: 6fr 6fr;
+    gap: 2.5rem;
+  }
+}
+
+.careers-panel {
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  display: flex;
+  flex-direction: column;
+}
+
+.careers-panel-header {
+  margin-bottom: 0.85rem;
+}
+
+.careers-panel-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 0.4rem;
+}
+
+.careers-panel-icon {
+  color: var(--color-accent);
+}
+
+.careers-panel-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  font-weight: 400;
+  color: var(--color-text-primary);
+  line-height: 1.2;
+}
+
+.careers-panel-desc {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin-bottom: 1.75rem;
+}
+
+/* ── Placement Visualization Chart ────────────────────────── */
+.careers-chart-wrapper {
+  margin-top: auto;
+  padding: 1.5rem 0.5rem 0.5rem;
+  background-color: rgba(220, 213, 197, 0.18);
+  border: 1px solid var(--color-border);
+}
+
+.careers-chart-axes {
+  position: relative;
+  height: 200px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.careers-chart-gridlines {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.chart-gridline {
+  border-bottom: 1px dashed rgba(16, 45, 39, 0.15);
+  height: 0;
+  position: relative;
+  width: 100%;
+}
+
+.chart-gridline span {
+  position: absolute;
+  right: 6px;
+  top: -12px;
+  font-family: var(--font-body);
+  font-size: 0.625rem;
+  color: var(--color-text-secondary);
+  opacity: 0.65;
+}
+
+.careers-chart-bars {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: space-around;
+  align-items: flex-end;
+  padding: 0 1rem;
+}
+
+.careers-trend-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: flex-end;
+  width: 18%;
+}
+
+.careers-trend-value {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 0.4rem;
+}
+
+.careers-trend-track {
+  width: 100%;
+  max-width: 44px;
+  height: 140px;
+  background-color: rgba(16, 45, 39, 0.05);
+  display: flex;
+  align-items: flex-end;
+  border-bottom: 2px solid var(--color-text-primary);
+}
+
+.careers-trend-bar-fill {
+  width: 100%;
+  background: var(--color-accent);
+  transition: opacity 0.2s ease;
+}
+
+.careers-trend-col:hover .careers-trend-bar-fill {
+  background: var(--color-text-primary);
+}
+
+.careers-trend-year {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--color-text-secondary);
+  margin-top: 0.5rem;
+}
+
+.careers-chart-legend {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  color: var(--color-text-secondary);
+}
+
+.legend-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-accent);
+  display: inline-block;
+}
+
+/* ── Recruiters Grid ──────────────────────────────────────── */
+.careers-recruiters-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+  margin-top: auto;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 540px) {
+  .careers-recruiters-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.careers-recruiter-card {
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--color-border);
+  background-color: rgba(220, 213, 197, 0.15);
+  transition: all 0.2s ease;
+}
+
+.careers-recruiter-card:hover {
+  background-color: rgba(220, 213, 197, 0.4);
+  border-color: var(--color-text-primary);
+}
+
+.recruiter-name-wrap {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.recruiter-name {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--color-text-primary);
+  font-weight: 400;
+}
+
+.recruiter-tag {
+  font-family: var(--font-body);
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  opacity: 0.85;
+}
+
+.recruiter-domain {
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+.careers-recruiter-note {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  color: var(--color-text-secondary);
+  opacity: 0.8;
+  font-style: italic;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(16, 45, 39, 0.1);
+}
+
+/* ── 4. Career Resources List ─────────────────────────────── */
+.careers-resources-section {
+  border-top: 1px solid var(--color-border);
+  padding-top: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.careers-resources-header {
+  margin-bottom: 2rem;
+}
+
+.careers-resources-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.careers-res-icon {
+  color: var(--color-accent);
+}
+
+.careers-resources-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.careers-resources-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 2.4rem);
+  font-weight: 400;
+  color: var(--color-text-primary);
+  line-height: 1.15;
+  margin-bottom: 0.6rem;
+}
+
+.careers-resources-subtitle {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--color-text-secondary);
+  max-width: 720px;
+}
+
+.careers-resources-list {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-border);
+}
+
+.careers-resource-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+  transition: all 0.22s ease;
+  gap: 1.5rem;
+}
+
+.careers-resource-item:last-child {
+  border-bottom: none;
+}
+
+.careers-resource-item:hover {
+  background-color: rgba(220, 213, 197, 0.3);
+  padding-left: 1.85rem;
+}
+
+.res-item-left {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+.res-item-number {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--color-accent);
+  opacity: 0.8;
+  min-width: 1.5rem;
+}
+
+.res-item-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.res-item-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  font-weight: 400;
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+}
+
+.res-item-desc {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+}
+
+.res-item-action {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-shrink: 0;
+  color: var(--color-text-primary);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.res-item-cta-label {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.res-item-arrow {
+  color: var(--color-accent);
+  transition: transform 0.2s ease;
+}
+
+.careers-resource-item:hover .res-item-arrow {
+  transform: translate(3px, -3px);
+  color: var(--color-text-primary);
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 640px) {
+  .careers-resource-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.1rem 1rem;
+    gap: 0.85rem;
+  }
+
+  .res-item-left {
+    gap: 0.85rem;
+  }
+
+  .res-item-action {
+    align-self: flex-end;
+  }
+}
