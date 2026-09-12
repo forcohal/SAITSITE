@@ -1,15 +1,13 @@
 import { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Users } from 'lucide-react';
 import {
   chairpersonProfile,
   executiveMembers,
   teamsData,
 } from '../data/associationData';
+import { animateReveal } from '../utils/animations';
 import './AssociationPeople.css';
-
-gsap.registerPlugin(ScrollTrigger);
 
 const teamKeys = ['tech', 'media', 'events', 'pr', 'content'];
 
@@ -29,14 +27,10 @@ export default function AssociationPeople() {
 
     const ctx = gsap.context(() => {
       // 1 — Section heading reveals
-      gsap.from(headerRef.current.querySelectorAll('.gsap-reveal-header'), {
-        scrollTrigger: {
-          trigger: headerRef.current,
-          start: 'top 85%',
-          once: true,
-        },
+      animateReveal(headerRef.current.querySelectorAll('.gsap-reveal-header'), {
+        trigger: headerRef.current,
+        start: 'top 85%',
         y: 40,
-        opacity: 0,
         duration: 1.0,
         stagger: 0.14,
         ease,
@@ -46,29 +40,18 @@ export default function AssociationPeople() {
       const chairImage = execFeatureRef.current.querySelector('.assoc-chair-image-wrap');
       const chairInfo = execFeatureRef.current.querySelector('.assoc-chair-info');
 
-      gsap.fromTo(
-        chairImage,
-        { clipPath: 'inset(100% 0% 0% 0%)' },
-        {
-          scrollTrigger: {
-            trigger: execFeatureRef.current,
-            start: 'top 80%',
-            once: true,
-          },
-          clipPath: 'inset(0% 0% 0% 0%)',
-          duration: 1.2,
-          ease,
-        }
-      );
+      animateReveal(chairImage, {
+        trigger: execFeatureRef.current,
+        start: 'top 80%',
+        clipPath: { from: 'inset(100% 0% 0% 0%)', to: 'inset(0% 0% 0% 0%)' },
+        duration: 1.2,
+        ease,
+      });
 
-      gsap.from(chairInfo.children, {
-        scrollTrigger: {
-          trigger: execFeatureRef.current,
-          start: 'top 80%',
-          once: true,
-        },
+      animateReveal(chairInfo.children, {
+        trigger: execFeatureRef.current,
+        start: 'top 80%',
         y: 30,
-        opacity: 0,
         duration: 0.95,
         stagger: 0.12,
         delay: 0.15,
@@ -76,41 +59,29 @@ export default function AssociationPeople() {
       });
 
       // 3 — Other executive members reveal
-      gsap.from(execGridRef.current.querySelectorAll('.assoc-exec-card'), {
-        scrollTrigger: {
-          trigger: execGridRef.current,
-          start: 'top 82%',
-          once: true,
-        },
+      animateReveal(execGridRef.current.querySelectorAll('.assoc-exec-card'), {
+        trigger: execGridRef.current,
+        start: 'top 82%',
         y: 30,
-        opacity: 0,
         duration: 0.85,
         stagger: 0.08,
         ease,
       });
 
       // 4 — Team navigation appears
-      gsap.from(teamsNavRef.current, {
-        scrollTrigger: {
-          trigger: teamsNavRef.current,
-          start: 'top 85%',
-          once: true,
-        },
+      animateReveal(teamsNavRef.current, {
+        trigger: teamsNavRef.current,
+        start: 'top 85%',
         y: 25,
-        opacity: 0,
         duration: 0.8,
         ease,
       });
 
       // 5 — Initial team members reveal
-      gsap.from(teamContentRef.current.querySelectorAll('.assoc-member-card'), {
-        scrollTrigger: {
-          trigger: teamContentRef.current,
-          start: 'top 82%',
-          once: true,
-        },
+      animateReveal(teamContentRef.current.querySelectorAll('.assoc-member-card'), {
+        trigger: teamContentRef.current,
+        start: 'top 82%',
         y: 25,
-        opacity: 0,
         duration: 0.8,
         stagger: 0.08,
         ease,

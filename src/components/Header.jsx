@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { scrollToSection } from '../utils/navigation';
 import './Header.css';
 
 const navLinks = [
@@ -81,27 +81,10 @@ export default function Header() {
       return;
     }
 
-    if (link.id === 'home') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      setActiveId('home');
+    scrollToSection(link.id, () => {
+      setActiveId(link.id);
       if (typeof onAfter === 'function') onAfter();
-      return;
-    }
-
-    const target = document.getElementById(link.id);
-    if (!target) return;
-
-    const headerHeight = parseInt(
-      getComputedStyle(document.documentElement).getPropertyValue('--header-height'),
-      10
-    ) || 80;
-
-    const top = target.getBoundingClientRect().top + window.scrollY - headerHeight;
-
-    window.scrollTo({ top, behavior: 'smooth' });
-    setActiveId(link.id);
-
-    if (typeof onAfter === 'function') onAfter();
+    });
   };
 
   return (
@@ -143,12 +126,16 @@ export default function Header() {
 
         {/* Mobile Menu Toggle */}
         <button
-          className="mobile-menu-btn"
+          className={`mobile-menu-btn ${isMobileMenuOpen ? 'open' : ''}`}
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label={isMobileMenuOpen ? 'Close mobile menu' : 'Open mobile menu'}
           aria-expanded={isMobileMenuOpen}
         >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          <span className="hamburger-box" aria-hidden="true">
+            <span className="hamburger-line top" />
+            <span className="hamburger-line middle" />
+            <span className="hamburger-line bottom" />
+          </span>
         </button>
       </div>
 

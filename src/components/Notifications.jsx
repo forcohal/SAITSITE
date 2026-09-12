@@ -1,15 +1,13 @@
 import { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowUpRight, Bell, Calendar, AlertCircle } from 'lucide-react';
 import {
   notificationsDisclaimer,
   notificationCategories,
   mockNotifications,
 } from '../data/notificationsData';
+import { animateReveal } from '../utils/animations';
 import './Notifications.css';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function Notifications() {
   const [activeCategory, setActiveCategory] = useState('ALL');
@@ -29,28 +27,20 @@ export default function Notifications() {
 
     const ctx = gsap.context(() => {
       // 1 — Section header reveal
-      gsap.from(headerRef.current.querySelectorAll('.gsap-reveal-header'), {
-        scrollTrigger: {
-          trigger: headerRef.current,
-          start: 'top 85%',
-          once: true,
-        },
+      animateReveal(headerRef.current.querySelectorAll('.gsap-reveal-header'), {
+        trigger: headerRef.current,
+        start: 'top 85%',
         y: 40,
-        opacity: 0,
         duration: 1.0,
         stagger: 0.14,
         ease,
       });
 
       // 2 — Notification rows reveal
-      gsap.from(listRef.current.querySelectorAll('.notif-row-item'), {
-        scrollTrigger: {
-          trigger: listRef.current,
-          start: 'top 82%',
-          once: true,
-        },
+      animateReveal(listRef.current.querySelectorAll('.notif-row-item'), {
+        trigger: listRef.current,
+        start: 'top 82%',
         y: 25,
-        opacity: 0,
         duration: 0.8,
         stagger: 0.06,
         ease,

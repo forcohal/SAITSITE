@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowUpRight, TrendingUp, Briefcase, BookOpen } from 'lucide-react';
 import {
   placementStats,
@@ -9,9 +8,8 @@ import {
   careerResources,
   placementDisclaimer,
 } from '../data/careersData';
+import { animateReveal } from '../utils/animations';
 import './PlacementsCareers.css';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function PlacementsCareers() {
   const sectionRef = useRef(null);
@@ -26,40 +24,30 @@ export default function PlacementsCareers() {
 
     const ctx = gsap.context(() => {
       // 1 — Section header reveal
-      gsap.from(headerRef.current.querySelectorAll('.gsap-reveal-header'), {
-        scrollTrigger: {
-          trigger: headerRef.current,
-          start: 'top 85%',
-          once: true,
-        },
+      animateReveal(headerRef.current.querySelectorAll('.gsap-reveal-header'), {
+        trigger: headerRef.current,
+        start: 'top 85%',
         y: 40,
-        opacity: 0,
         duration: 1.0,
         stagger: 0.14,
         ease,
       });
 
       // 2 — Placement stats reveal
-      gsap.from(statsRef.current.querySelectorAll('.careers-stat-cell'), {
-        scrollTrigger: {
-          trigger: statsRef.current,
-          start: 'top 85%',
-          once: true,
-        },
+      animateReveal(statsRef.current.querySelectorAll('.careers-stat-cell'), {
+        trigger: statsRef.current,
+        start: 'top 85%',
         y: 30,
-        opacity: 0,
         duration: 0.9,
         stagger: 0.1,
         ease,
       });
 
       // 3 — Visualization trend bars reveal
-      gsap.from(visualRef.current.querySelectorAll('.careers-trend-bar-fill'), {
-        scrollTrigger: {
-          trigger: visualRef.current,
-          start: 'top 82%',
-          once: true,
-        },
+      animateReveal(visualRef.current.querySelectorAll('.careers-trend-bar-fill'), {
+        trigger: visualRef.current,
+        start: 'top 82%',
+        y: 0,
         scaleY: 0,
         transformOrigin: 'bottom',
         duration: 1.1,
@@ -67,29 +55,21 @@ export default function PlacementsCareers() {
         ease: 'power2.out',
       });
 
-      // 4 — Recruiters reveal
-      gsap.from(recruitersRef.current.querySelectorAll('.careers-recruiter-card'), {
-        scrollTrigger: {
-          trigger: recruitersRef.current,
-          start: 'top 85%',
-          once: true,
-        },
+      // 4 — Recruiters reveal (Sample Hiring Network)
+      animateReveal(recruitersRef.current.querySelectorAll('.careers-recruiter-card'), {
+        trigger: recruitersRef.current,
+        start: 'top 85%',
         y: 20,
-        opacity: 0,
         duration: 0.8,
         stagger: 0.07,
         ease,
       });
 
-      // 5 — Career resources reveal
-      gsap.from(resourcesRef.current.querySelectorAll('.careers-resource-item'), {
-        scrollTrigger: {
-          trigger: resourcesRef.current,
-          start: 'top 85%',
-          once: true,
-        },
+      // 5 — Career resources reveal (Career Development Resources)
+      animateReveal(resourcesRef.current.querySelectorAll('.careers-resource-item'), {
+        trigger: resourcesRef.current,
+        start: 'top 85%',
         y: 25,
-        opacity: 0,
         duration: 0.85,
         stagger: 0.08,
         ease,

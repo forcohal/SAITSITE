@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { animateReveal } from '../utils/animations';
 import {
   Send,
   Mail,
@@ -36,42 +37,30 @@ export default function FooterContact() {
 
     const ctx = gsap.context(() => {
       // 1 — Contact header reveal
-      gsap.from(headerRef.current.querySelectorAll('.gsap-reveal-header'), {
-        scrollTrigger: {
-          trigger: headerRef.current,
-          start: 'top 85%',
-          once: true,
-        },
+      animateReveal(headerRef.current.querySelectorAll('.gsap-reveal-header'), {
+        trigger: headerRef.current,
+        start: 'top 85%',
         y: 40,
-        opacity: 0,
         duration: 1.0,
         stagger: 0.14,
         ease,
       });
 
       // 2 — Info & Form reveal
-      gsap.from([infoRef.current, formRef.current], {
-        scrollTrigger: {
-          trigger: infoRef.current,
-          start: 'top 82%',
-          once: true,
-        },
+      animateReveal([infoRef.current, formRef.current], {
+        trigger: infoRef.current,
+        start: 'top 82%',
         y: 30,
-        opacity: 0,
         duration: 0.9,
         stagger: 0.15,
         ease,
       });
 
       // 3 — Footer elements reveal
-      gsap.from(footerRef.current.querySelectorAll('.gsap-reveal-footer'), {
-        scrollTrigger: {
-          trigger: footerRef.current,
-          start: 'top 88%',
-          once: true,
-        },
+      animateReveal(footerRef.current.querySelectorAll('.gsap-reveal-footer'), {
+        trigger: footerRef.current,
+        start: 'top 88%',
         y: 25,
-        opacity: 0,
         duration: 0.8,
         stagger: 0.1,
         ease,

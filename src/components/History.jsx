@@ -1,43 +1,12 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { animateReveal } from '../utils/animations';
+import { historyIntro, historyTimelineNodes } from '../data/historyData';
 import { images } from '../data/images';
 import './History.css';
 
 gsap.registerPlugin(ScrollTrigger);
-
-/* ─────────────────────────────────────────────────────────────────────────
-   Static content — strictly factual per the source material
-───────────────────────────────────────────────────────────────────────── */
-const HISTORY_INTRO = {
-  label: 'HISTORY',
-  heading: 'HOW WE GOT\nHERE',
-  body: 'The story of the Information Technology Division and SAIT is one of continuous evolution—built around technology, collaborative learning, and active student participation.',
-};
-
-const HISTORY_NODES = [
-  {
-    id: 'origin',
-    meta: '01 / ORIGIN',
-    year: '1995',
-    title: 'IT DIVISION',
-    text: 'The Information Technology Division was established/instituted at the School of Engineering, CUSAT, laying the academic foundation for technology education.',
-  },
-  {
-    id: 'association',
-    meta: '02 / THE ASSOCIATION',
-    year: '',
-    title: 'SAIT',
-    text: 'Operating as a student-driven organization with steadfast support from IT faculty and staff, SAIT emerged as the core community for the department.',
-  },
-  {
-    id: 'student-life',
-    meta: '03 / STUDENT LIFE',
-    year: '',
-    title: 'BEYOND THE CLASSROOM',
-    text: 'The association cultivates a vibrant technical culture through workshops, seminars, hands-on projects, alumni interactions, and open student forums.',
-  },
-];
 
 /* ─────────────────────────────────────────────────────────────────────────
    Component
@@ -68,10 +37,10 @@ export default function History() {
       });
 
       // 2 — Intro block reveal
-      gsap.from(introRef.current.children, {
-        scrollTrigger: { trigger: introRef.current, start: 'top 85%', once: true },
+      animateReveal(introRef.current.children, {
+        trigger: introRef.current,
+        start: 'top 85%',
         y: 40,
-        opacity: 0,
         duration: 1,
         stagger: 0.15,
         ease,
@@ -94,7 +63,7 @@ export default function History() {
       );
 
       // 4 — Nodes reveal sequentially
-      nodesRef.current.forEach((node, i) => {
+      nodesRef.current.forEach((node) => {
         const marker = node.querySelector('.history-marker');
         const reveals = node.querySelectorAll('.gsap-reveal');
         
@@ -102,7 +71,8 @@ export default function History() {
           scrollTrigger: {
             trigger: node,
             start: 'top 80%',
-            once: true,
+            toggleActions: 'play none none none',
+            fastScrollEnd: true,
           },
         });
 
@@ -112,6 +82,7 @@ export default function History() {
           opacity: 0,
           duration: 0.6,
           ease: 'back.out(1.5)',
+          clearProps: 'opacity,transform',
         })
         // Fade up the text content
         .from(reveals, {
@@ -120,21 +91,19 @@ export default function History() {
           duration: 0.8,
           stagger: 0.1,
           ease,
+          clearProps: 'opacity,transform',
         }, '-=0.3');
       });
 
       // 5 — Optional image clip reveal
       if (imageWrapRef.current) {
-        gsap.fromTo(
-          imageWrapRef.current,
-          { clipPath: 'inset(100% 0% 0% 0%)' },
-          {
-            scrollTrigger: { trigger: imageWrapRef.current, start: 'top 80%', once: true },
-            clipPath: 'inset(0% 0% 0% 0%)',
-            duration: 1.3,
-            ease,
-          }
-        );
+        animateReveal(imageWrapRef.current, {
+          trigger: imageWrapRef.current,
+          start: 'top 80%',
+          clipPath: { from: 'inset(100% 0% 0% 0%)', to: 'inset(0% 0% 0% 0%)' },
+          duration: 1.3,
+          ease,
+        });
       }
 
     }, sectionRef);
@@ -154,13 +123,13 @@ export default function History() {
         
         {/* ── Section Intro ───────────────────────────────────── */}
         <div className="history-intro" ref={introRef}>
-          <span className="history-label">{HISTORY_INTRO.label}</span>
+          <span className="history-label">{historyIntro.label}</span>
           <h2 className="history-heading">
-            {HISTORY_INTRO.heading.split('\n').map((line, i) => (
+            {historyIntro.heading.split('\n').map((line, i) => (
               <span key={i} className="history-heading-line">{line}</span>
             ))}
           </h2>
-          <p className="history-intro-body">{HISTORY_INTRO.body}</p>
+          <p className="history-intro-body">{historyIntro.body}</p>
         </div>
 
         {/* ── Main Content Split (Timeline + Image) ───────────── */}
@@ -172,7 +141,7 @@ export default function History() {
             <div className="history-line" ref={lineRef} aria-hidden="true" />
 
             {/* Timeline Nodes */}
-            {HISTORY_NODES.map((node, i) => (
+            {historyTimelineNodes.map((node, i) => (
               <div 
                 className="history-node" 
                 key={node.id}

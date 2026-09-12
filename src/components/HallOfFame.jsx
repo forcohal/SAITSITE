@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Trophy, Award, Sparkles, Filter } from 'lucide-react';
 import {
   hallOfFameDisclaimer,
@@ -8,9 +7,8 @@ import {
   featuredAchievement,
   achievementTimeline,
 } from '../data/hallOfFameData';
+import { animateReveal } from '../utils/animations';
 import './HallOfFame.css';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function HallOfFame() {
   const [activeCategory, setActiveCategory] = useState('ALL');
@@ -31,14 +29,10 @@ export default function HallOfFame() {
 
     const ctx = gsap.context(() => {
       // 1 — Section header reveal
-      gsap.from(headerRef.current.querySelectorAll('.gsap-reveal-header'), {
-        scrollTrigger: {
-          trigger: headerRef.current,
-          start: 'top 85%',
-          once: true,
-        },
+      animateReveal(headerRef.current.querySelectorAll('.gsap-reveal-header'), {
+        trigger: headerRef.current,
+        start: 'top 85%',
         y: 40,
-        opacity: 0,
         duration: 1.0,
         stagger: 0.14,
         ease,
@@ -46,27 +40,19 @@ export default function HallOfFame() {
 
       // 2 — Featured achievement reveal
       const featCard = featuredRef.current.querySelector('.hof-featured-card');
-      gsap.from(featCard, {
-        scrollTrigger: {
-          trigger: featuredRef.current,
-          start: 'top 82%',
-          once: true,
-        },
+      animateReveal(featCard, {
+        trigger: featuredRef.current,
+        start: 'top 82%',
         y: 35,
-        opacity: 0,
         duration: 1.1,
         ease,
       });
 
       // 3 — Timeline items reveal
-      gsap.from(timelineRef.current.querySelectorAll('.hof-timeline-row'), {
-        scrollTrigger: {
-          trigger: timelineRef.current,
-          start: 'top 85%',
-          once: true,
-        },
+      animateReveal(timelineRef.current.querySelectorAll('.hof-timeline-row'), {
+        trigger: timelineRef.current,
+        start: 'top 85%',
         y: 25,
-        opacity: 0,
         duration: 0.8,
         stagger: 0.08,
         ease,

@@ -1,15 +1,13 @@
 import { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowUpRight, ArrowRight } from 'lucide-react';
 import {
   featuredResource,
   resourceCategories,
   academicResources,
 } from '../data/academicResourcesData';
+import { animateReveal } from '../utils/animations';
 import './AcademicResources.css';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function AcademicResources() {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -27,28 +25,20 @@ export default function AcademicResources() {
 
     const ctx = gsap.context(() => {
       // 1 — Left column intro reveal (eyebrow, heading, intro text, featured card)
-      gsap.from(leftColRef.current.querySelectorAll('.gsap-reveal-left'), {
-        scrollTrigger: {
-          trigger: leftColRef.current,
-          start: 'top 85%',
-          once: true,
-        },
+      animateReveal(leftColRef.current.querySelectorAll('.gsap-reveal-left'), {
+        trigger: leftColRef.current,
+        start: 'top 85%',
         y: 40,
-        opacity: 0,
         duration: 1.0,
         stagger: 0.14,
         ease,
       });
 
       // 2 — Resource rows reveal with subtle stagger
-      gsap.from(listRef.current.querySelectorAll('.resources-row-item'), {
-        scrollTrigger: {
-          trigger: listRef.current,
-          start: 'top 82%',
-          once: true,
-        },
+      animateReveal(listRef.current.querySelectorAll('.resources-row-item'), {
+        trigger: listRef.current,
+        start: 'top 82%',
         y: 25,
-        opacity: 0,
         duration: 0.8,
         stagger: 0.05,
         ease,

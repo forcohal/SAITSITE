@@ -1,11 +1,9 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowUpRight } from 'lucide-react';
 import { hodData, coordinatorsData, facultyMembers } from '../data/facultyData';
+import { animateReveal } from '../utils/animations';
 import './FacultyAdministration.css';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function FacultyAdministration() {
   const sectionRef       = useRef(null);
@@ -19,14 +17,10 @@ export default function FacultyAdministration() {
 
     const ctx = gsap.context(() => {
       // 1 — Main section header reveal
-      gsap.from(headerRef.current.querySelectorAll('.gsap-reveal-header'), {
-        scrollTrigger: {
-          trigger: headerRef.current,
-          start: 'top 85%',
-          once: true,
-        },
+      animateReveal(headerRef.current.querySelectorAll('.gsap-reveal-header'), {
+        trigger: headerRef.current,
+        start: 'top 85%',
         y: 40,
-        opacity: 0,
         duration: 1.0,
         stagger: 0.14,
         ease,
@@ -36,29 +30,18 @@ export default function FacultyAdministration() {
       const hodImage = hodRef.current.querySelector('.faculty-hod-image-wrap');
       const hodInfo = hodRef.current.querySelector('.faculty-hod-info');
 
-      gsap.fromTo(
-        hodImage,
-        { clipPath: 'inset(100% 0% 0% 0%)' },
-        {
-          scrollTrigger: {
-            trigger: hodRef.current,
-            start: 'top 80%',
-            once: true,
-          },
-          clipPath: 'inset(0% 0% 0% 0%)',
-          duration: 1.25,
-          ease,
-        }
-      );
+      animateReveal(hodImage, {
+        trigger: hodRef.current,
+        start: 'top 80%',
+        clipPath: { from: 'inset(100% 0% 0% 0%)', to: 'inset(0% 0% 0% 0%)' },
+        duration: 1.25,
+        ease,
+      });
 
-      gsap.from(hodInfo.children, {
-        scrollTrigger: {
-          trigger: hodRef.current,
-          start: 'top 80%',
-          once: true,
-        },
+      animateReveal(hodInfo.children, {
+        trigger: hodRef.current,
+        start: 'top 80%',
         y: 30,
-        opacity: 0,
         duration: 1.0,
         stagger: 0.12,
         delay: 0.15,
@@ -66,28 +49,20 @@ export default function FacultyAdministration() {
       });
 
       // 3 — Coordinators cards reveal sequentially
-      gsap.from(coordinatorsRef.current.querySelectorAll('.faculty-coord-card'), {
-        scrollTrigger: {
-          trigger: coordinatorsRef.current,
-          start: 'top 82%',
-          once: true,
-        },
+      animateReveal(coordinatorsRef.current.querySelectorAll('.faculty-coord-card'), {
+        trigger: coordinatorsRef.current,
+        start: 'top 82%',
         y: 35,
-        opacity: 0,
         duration: 0.9,
         stagger: 0.14,
         ease,
       });
 
       // 4 — Faculty directory cards reveal with stagger
-      gsap.from(facultyRef.current.querySelectorAll('.faculty-card'), {
-        scrollTrigger: {
-          trigger: facultyRef.current,
-          start: 'top 80%',
-          once: true,
-        },
+      animateReveal(facultyRef.current.querySelectorAll('.faculty-card'), {
+        trigger: facultyRef.current,
+        start: 'top 80%',
         y: 30,
-        opacity: 0,
         duration: 0.85,
         stagger: 0.08,
         ease,

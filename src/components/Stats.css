@@ -1,5 +1,5 @@
 .stats-section {
-  padding-top: var(--spacing-section);
+  padding-top: calc(var(--spacing-section) * 0.75); /* Reduced gap between SAIT hero and SAIT AT A GLANCE by 25% */
   padding-bottom: var(--spacing-section);
   min-height: 100vh;
   display: flex;

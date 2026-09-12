@@ -1,44 +1,11 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { animateReveal } from '../utils/animations';
+import { visionMissionData } from '../data/visionMissionData';
 import './VisionMission.css';
 
 gsap.registerPlugin(ScrollTrigger);
-
-/* ─────────────────────────────────────────────────────────────────────────
-   Official CUSAT Information Technology Division Vision & Mission
-───────────────────────────────────────────────────────────────────────── */
-const VISION_MISSION_DATA = {
-  sectionNumber: '05',
-  sectionLabel: 'OUR DIRECTION',
-  headline: 'WHAT DRIVES\nUS',
-  intro:
-    'Bridging foundational academic excellence with student-led discovery, the division unites rigorous technology education with purposeful innovation and societal impact.',
-  vision: {
-    number: '01',
-    label: 'VISION',
-    statement:
-      'To become a world leader in higher education and research in the field of Information Technology.',
-    tagline: 'Primary Direction',
-  },
-  mission: {
-    number: '02',
-    label: 'MISSION',
-    lead: 'Translating institutional aspiration into real-world capability and student leadership.',
-    pillars: [
-      {
-        title: 'Knowledge & Excellence',
-        description:
-          'To impart state-of-the-art knowledge in the field of Information Technology with a focus on developing required competencies and virtues to meet the requirements of the society and to become a centre of excellence in this field.',
-      },
-      {
-        title: 'Innovation & Entrepreneurship',
-        description:
-          'To attract graduate, post-graduate, and research students and train them in innovative areas so that they can impress various recruiters from industry and academia and also become entrepreneurs in Information Technology.',
-      },
-    ],
-  },
-};
 
 export default function VisionMission() {
   const sectionRef   = useRef(null);
@@ -52,70 +19,51 @@ export default function VisionMission() {
 
     const ctx = gsap.context(() => {
       // 1 — Section intro: label, heading lines, and introductory description
-      gsap.from(headerRef.current.querySelectorAll('.gsap-reveal-header'), {
-        scrollTrigger: {
-          trigger: headerRef.current,
-          start: 'top 85%',
-          once: true,
-        },
+      animateReveal(headerRef.current.querySelectorAll('.gsap-reveal-header'), {
+        trigger: headerRef.current,
+        start: 'top 85%',
         y: 40,
-        opacity: 0,
         duration: 1.0,
         stagger: 0.14,
         ease,
       });
 
       // 2 — Primary Vision block entrance
-      gsap.from(visionRef.current, {
-        scrollTrigger: {
-          trigger: visionRef.current,
-          start: 'top 82%',
-          once: true,
-        },
+      animateReveal(visionRef.current, {
+        trigger: visionRef.current,
+        start: 'top 82%',
         y: 45,
-        opacity: 0,
         duration: 1.1,
         ease,
       });
 
       // 3 — Subtle connector animation
       if (connectorRef.current) {
-        gsap.from(connectorRef.current, {
-          scrollTrigger: {
-            trigger: connectorRef.current,
-            start: 'top 85%',
-            once: true,
-          },
+        animateReveal(connectorRef.current, {
+          trigger: connectorRef.current,
+          start: 'top 85%',
           scaleY: 0,
-          opacity: 0,
+          y: 0,
           duration: 0.8,
           ease: 'power2.out',
         });
       }
 
       // 4 — Supporting Mission block entrance (subtly staggered)
-      gsap.from(missionRef.current, {
-        scrollTrigger: {
-          trigger: missionRef.current,
-          start: 'top 82%',
-          once: true,
-        },
+      animateReveal(missionRef.current, {
+        trigger: missionRef.current,
+        start: 'top 82%',
         y: 40,
-        opacity: 0,
         duration: 1.1,
         delay: 0.15,
         ease,
       });
 
       // 5 — Mission pillars stagger
-      gsap.from(missionRef.current.querySelectorAll('.vm-pillar-item'), {
-        scrollTrigger: {
-          trigger: missionRef.current,
-          start: 'top 78%',
-          once: true,
-        },
+      animateReveal(missionRef.current.querySelectorAll('.vm-pillar-item'), {
+        trigger: missionRef.current,
+        start: 'top 78%',
         y: 25,
-        opacity: 0,
         duration: 0.85,
         stagger: 0.16,
         delay: 0.3,
@@ -133,19 +81,19 @@ export default function VisionMission() {
         {/* ── Section Header ───────────────────────────────── */}
         <div className="vm-header" ref={headerRef}>
           <div className="vm-header-meta gsap-reveal-header">
-            <span className="vm-label-num">{VISION_MISSION_DATA.sectionNumber}</span>
+            <span className="vm-label-num">{visionMissionData.sectionNumber}</span>
             <span className="vm-label-divider">—</span>
-            <span className="vm-label-text">{VISION_MISSION_DATA.sectionLabel}</span>
+            <span className="vm-label-text">{visionMissionData.sectionLabel}</span>
           </div>
 
           <div className="vm-header-main">
             <h2 className="vm-heading gsap-reveal-header">
-              {VISION_MISSION_DATA.headline.split('\n').map((line, i) => (
+              {visionMissionData.headline.split('\n').map((line, i) => (
                 <span key={i} className="vm-heading-line">{line}</span>
               ))}
             </h2>
             <p className="vm-intro-body gsap-reveal-header">
-              {VISION_MISSION_DATA.intro}
+              {visionMissionData.intro}
             </p>
           </div>
         </div>
@@ -159,18 +107,18 @@ export default function VisionMission() {
               <div className="vm-badge">
                 <span className="vm-badge-dot" />
                 <span className="vm-badge-label">
-                  {VISION_MISSION_DATA.vision.number} / {VISION_MISSION_DATA.vision.label}
+                  {visionMissionData.vision.number} / {visionMissionData.vision.label}
                 </span>
               </div>
-              <span className="vm-tagline">{VISION_MISSION_DATA.vision.tagline}</span>
+              <span className="vm-tagline">{visionMissionData.vision.tagline}</span>
             </div>
 
             <div className="vm-vision-body">
               <span className="vm-oversized-num" aria-hidden="true">
-                {VISION_MISSION_DATA.vision.number}
+                {visionMissionData.vision.number}
               </span>
               <blockquote className="vm-vision-quote">
-                "{VISION_MISSION_DATA.vision.statement}"
+                "{visionMissionData.vision.statement}"
               </blockquote>
             </div>
 
@@ -194,7 +142,7 @@ export default function VisionMission() {
               <div className="vm-badge vm-badge-mission">
                 <span className="vm-badge-dot vm-dot-burgundy" />
                 <span className="vm-badge-label">
-                  {VISION_MISSION_DATA.mission.number} / {VISION_MISSION_DATA.mission.label}
+                  {visionMissionData.mission.number} / {visionMissionData.mission.label}
                 </span>
               </div>
               <span className="vm-tagline">Strategic Execution</span>
@@ -202,15 +150,15 @@ export default function VisionMission() {
 
             <div className="vm-mission-lead-wrapper">
               <span className="vm-oversized-num vm-mission-num" aria-hidden="true">
-                {VISION_MISSION_DATA.mission.number}
+                {visionMissionData.mission.number}
               </span>
               <p className="vm-mission-lead">
-                {VISION_MISSION_DATA.mission.lead}
+                {visionMissionData.mission.lead}
               </p>
             </div>
 
             <div className="vm-pillars-grid">
-              {VISION_MISSION_DATA.mission.pillars.map((pillar, index) => (
+              {visionMissionData.mission.pillars.map((pillar, index) => (
                 <div key={index} className="vm-pillar-item">
                   <div className="vm-pillar-header">
                     <span className="vm-pillar-index">0{index + 1}</span>

@@ -1,15 +1,13 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Quote, GraduationCap } from 'lucide-react';
 import {
   alumniSpotlight,
   alumniProfiles,
   alumniDisclaimer,
 } from '../data/alumniData';
+import { animateReveal } from '../utils/animations';
 import './Alumni.css';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function Alumni() {
   const sectionRef = useRef(null);
@@ -22,14 +20,10 @@ export default function Alumni() {
 
     const ctx = gsap.context(() => {
       // 1 — Section header reveal
-      gsap.from(headerRef.current.querySelectorAll('.gsap-reveal-header'), {
-        scrollTrigger: {
-          trigger: headerRef.current,
-          start: 'top 85%',
-          once: true,
-        },
+      animateReveal(headerRef.current.querySelectorAll('.gsap-reveal-header'), {
+        trigger: headerRef.current,
+        start: 'top 85%',
         y: 40,
-        opacity: 0,
         duration: 1.0,
         stagger: 0.14,
         ease,
@@ -39,44 +33,29 @@ export default function Alumni() {
       const spotImgWrap = spotlightRef.current.querySelector('.alumni-spotlight-image-wrap');
       const spotContent = spotlightRef.current.querySelector('.alumni-spotlight-content');
 
-      gsap.fromTo(
-        spotImgWrap,
-        { clipPath: 'inset(0% 0% 100% 0%)' },
-        {
-          scrollTrigger: {
-            trigger: spotlightRef.current,
-            start: 'top 80%',
-            once: true,
-          },
-          clipPath: 'inset(0% 0% 0% 0%)',
-          duration: 1.25,
-          ease,
-        }
-      );
+      animateReveal(spotImgWrap, {
+        trigger: spotlightRef.current,
+        start: 'top 80%',
+        clipPath: { from: 'inset(0% 0% 100% 0%)', to: 'inset(0% 0% 0% 0%)' },
+        duration: 1.25,
+        ease,
+      });
 
-      gsap.from(spotContent.children, {
-        scrollTrigger: {
-          trigger: spotlightRef.current,
-          start: 'top 80%',
-          once: true,
-        },
+      animateReveal(spotContent.children, {
+        trigger: spotlightRef.current,
+        start: 'top 80%',
         y: 30,
-        opacity: 0,
         duration: 0.9,
         stagger: 0.1,
         delay: 0.15,
         ease,
       });
 
-      // 3 — Compact profiles reveal
-      gsap.from(profilesRef.current.querySelectorAll('.alumni-profile-card'), {
-        scrollTrigger: {
-          trigger: profilesRef.current,
-          start: 'top 85%',
-          once: true,
-        },
+      // 3 — Compact profiles reveal (Graduate Trajectories)
+      animateReveal(profilesRef.current.querySelectorAll('.alumni-profile-card'), {
+        trigger: profilesRef.current,
+        start: 'top 85%',
         y: 25,
-        opacity: 0,
         duration: 0.8,
         stagger: 0.1,
         ease,

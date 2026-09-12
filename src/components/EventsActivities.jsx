@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Calendar, Clock, MapPin, ArrowRight, ArrowUpRight, Award, ChevronDown } from 'lucide-react';
+import { Calendar, Clock, MapPin, ArrowRight, ArrowUpRight, ChevronDown } from 'lucide-react';
 import {
   featuredEvent,
   eventCategories,
@@ -9,9 +8,8 @@ import {
   flagshipEvents,
   pastEvents,
 } from '../data/eventsData';
+import { animateReveal } from '../utils/animations';
 import './EventsActivities.css';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function EventsActivities() {
   const [activeCategory, setActiveCategory] = useState('ALL');
@@ -37,14 +35,10 @@ export default function EventsActivities() {
 
     const ctx = gsap.context(() => {
       // 1 — Section header reveal
-      gsap.from(headerRef.current.querySelectorAll('.gsap-reveal-header'), {
-        scrollTrigger: {
-          trigger: headerRef.current,
-          start: 'top 85%',
-          once: true,
-        },
+      animateReveal(headerRef.current.querySelectorAll('.gsap-reveal-header'), {
+        trigger: headerRef.current,
+        start: 'top 85%',
         y: 40,
-        opacity: 0,
         duration: 1.0,
         stagger: 0.14,
         ease,
@@ -54,29 +48,18 @@ export default function EventsActivities() {
       const featImage = featuredRef.current.querySelector('.events-featured-image-wrap');
       const featInfo = featuredRef.current.querySelector('.events-featured-info');
 
-      gsap.fromTo(
-        featImage,
-        { clipPath: 'inset(100% 0% 0% 0%)' },
-        {
-          scrollTrigger: {
-            trigger: featuredRef.current,
-            start: 'top 80%',
-            once: true,
-          },
-          clipPath: 'inset(0% 0% 0% 0%)',
-          duration: 1.25,
-          ease,
-        }
-      );
+      animateReveal(featImage, {
+        trigger: featuredRef.current,
+        start: 'top 80%',
+        clipPath: { from: 'inset(100% 0% 0% 0%)', to: 'inset(0% 0% 0% 0%)' },
+        duration: 1.25,
+        ease,
+      });
 
-      gsap.from(featInfo.children, {
-        scrollTrigger: {
-          trigger: featuredRef.current,
-          start: 'top 80%',
-          once: true,
-        },
+      animateReveal(featInfo.children, {
+        trigger: featuredRef.current,
+        start: 'top 80%',
         y: 30,
-        opacity: 0,
         duration: 1.0,
         stagger: 0.1,
         delay: 0.15,
@@ -84,42 +67,30 @@ export default function EventsActivities() {
       });
 
       // 3 — Upcoming events reveal
-      gsap.from(upcomingRef.current.querySelectorAll('.events-row-item'), {
-        scrollTrigger: {
-          trigger: upcomingRef.current,
-          start: 'top 82%',
-          once: true,
-        },
+      animateReveal(upcomingRef.current.querySelectorAll('.events-row-item'), {
+        trigger: upcomingRef.current,
+        start: 'top 82%',
         y: 25,
-        opacity: 0,
         duration: 0.8,
         stagger: 0.08,
         ease,
       });
 
       // 4 — Flagship events reveal
-      gsap.from(flagshipsRef.current.querySelectorAll('.events-flagship-card'), {
-        scrollTrigger: {
-          trigger: flagshipsRef.current,
-          start: 'top 82%',
-          once: true,
-        },
+      animateReveal(flagshipsRef.current.querySelectorAll('.events-flagship-card'), {
+        trigger: flagshipsRef.current,
+        start: 'top 82%',
         y: 30,
-        opacity: 0,
         duration: 0.9,
         stagger: 0.12,
         ease,
       });
 
       // 5 — Past events archive reveal
-      gsap.from(pastRef.current.querySelectorAll('.events-past-row'), {
-        scrollTrigger: {
-          trigger: pastRef.current,
-          start: 'top 85%',
-          once: true,
-        },
+      animateReveal(pastRef.current.querySelectorAll('.events-past-row'), {
+        trigger: pastRef.current,
+        start: 'top 85%',
         y: 20,
-        opacity: 0,
         duration: 0.75,
         stagger: 0.06,
         ease,

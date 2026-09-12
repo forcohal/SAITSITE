@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { animateReveal } from '../utils/animations';
 import {
   CheckCircle2,
   Clock,
@@ -57,56 +58,40 @@ export default function StudentActivityLogger() {
 
     const ctx = gsap.context(() => {
       // 1 — Header reveal
-      gsap.from(headerRef.current.querySelectorAll('.gsap-reveal-header'), {
-        scrollTrigger: {
-          trigger: headerRef.current,
-          start: 'top 85%',
-          once: true,
-        },
+      animateReveal(headerRef.current.querySelectorAll('.gsap-reveal-header'), {
+        trigger: headerRef.current,
+        start: 'top 85%',
         y: 40,
-        opacity: 0,
         duration: 1.0,
         stagger: 0.14,
         ease,
       });
 
       // 2 — Dashboard stats reveal
-      gsap.from(statsRef.current.querySelectorAll('.act-stat-cell'), {
-        scrollTrigger: {
-          trigger: statsRef.current,
-          start: 'top 85%',
-          once: true,
-        },
+      animateReveal(statsRef.current.querySelectorAll('.act-stat-cell'), {
+        trigger: statsRef.current,
+        start: 'top 85%',
         y: 30,
-        opacity: 0,
         duration: 0.85,
         stagger: 0.08,
         ease,
       });
 
       // 3 — Feed and Form reveal
-      gsap.from([feedRef.current, formRef.current], {
-        scrollTrigger: {
-          trigger: feedRef.current,
-          start: 'top 82%',
-          once: true,
-        },
+      animateReveal([feedRef.current, formRef.current], {
+        trigger: feedRef.current,
+        start: 'top 82%',
         y: 30,
-        opacity: 0,
         duration: 0.9,
         stagger: 0.15,
         ease,
       });
 
       // 4 — Leaderboard reveal
-      gsap.from(leaderboardRef.current, {
-        scrollTrigger: {
-          trigger: leaderboardRef.current,
-          start: 'top 85%',
-          once: true,
-        },
+      animateReveal(leaderboardRef.current, {
+        trigger: leaderboardRef.current,
+        start: 'top 85%',
         y: 30,
-        opacity: 0,
         duration: 0.9,
         ease,
       });
